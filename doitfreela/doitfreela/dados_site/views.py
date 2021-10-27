@@ -35,3 +35,8 @@ def projeto(request, id):
   }
   return render(request, "projeto.html", dadosProjeto)
 
+
+def gestao_de_tempo(request):
+
+  return render(request, "gestao_tempo.html")
+

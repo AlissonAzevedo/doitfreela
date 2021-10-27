@@ -1,29 +1,45 @@
-const ctx = document.getElementsByClassName('gestao_tempo').getContext('2d');
-
+const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+        labels: ['24/10', '25/10', '26/10', '27/10', '28/10', '29/10', '30/10',],
+        datasets: [
+            {
+                label: 'Horas Executadas',
+                data: [12, 19, 3, 5, 2, 3, 6],
+                borderWidth: 6,
+                backgroundColor: [
+                    'transparent',
+                    
+                ],
+                borderColor: [
+                    'rgb(255, 0, 0)',
+                ],
+                tension: 0.3,
+            },
+
+            {
+                label: 'Horas Esperadas',
+                data: [10, 14, 3, 6, 2, 5, 2],
+                borderWidth: 6,
+                backgroundColor: [
+                    'transparent',
+                    
+                ],
+                borderColor: [
+                    'rgb(8, 0, 255)',
+                ],
+                tension: 0.3,
+            }
+
+    ]
     },
+    options: {
+        plugins: {
+            title: {
+                display: true,
+                text: 'Gestão de Tempo',
+            }
+        }
+    }
 });
