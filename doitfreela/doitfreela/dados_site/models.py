@@ -18,5 +18,4 @@ class Usuario(models.Model):
 
 class Ferramenta(models.Model):
   nome = models.CharField(max_length=250)
-  descricao = models.CharField(max_length=250, null=True)
   foto_ferramenta = models.FileField(upload_to="media/", null=True)
