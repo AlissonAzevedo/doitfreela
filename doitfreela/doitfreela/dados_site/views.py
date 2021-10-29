@@ -57,7 +57,7 @@ def ferramentas(request):
   return render(request, "ferramentas.html", dados)
 
 
-def ferramentas(request):
+def requisitos (request):
   usuario = Usuario.objects.all()
 
   dados = {
