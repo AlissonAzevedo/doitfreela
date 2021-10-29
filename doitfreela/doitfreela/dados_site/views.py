@@ -37,6 +37,12 @@ def projeto(request, id):
 
 
 def gestao_de_tempo(request):
+  usuario = Usuario.objects.all()
+  projeto = Projeto.objects.all()
 
-  return render(request, "gestao_tempo.html")
+  dados = {
+    'usuario': usuario[0],
+    'projeto': projeto[0],
+  }
+  return render(request, "gestao_tempo.html", dados)
 

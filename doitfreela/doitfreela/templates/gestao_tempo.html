@@ -1,24 +1,94 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Tempo</title>
-    <link rel="shortcut icon" href="{% static './img/favicon_doitfreela.png' %}"/>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gestão de Tempo</title>
+	<link rel="shortcut icon" href="{% static './img/favicon_doitfreela.png' %}" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	 crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href=" {% static './css/style.css' %}">
 </head>
+
 <body>
-    
-    <div style="max-height: 600px; max-width: 800px">
-        <canvas id="myChart"></canvas>
-    </div>
-    
+
+	<header>
+		<div class="navbar navbar-dark bg-dark box-shadow" style="border-radius:30px;">
+			<div class="container d-flex justify-content-between">
+				<a href="{% url 'home'%}" class="navbar-brand d-flex align-items-center">
+					<img src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo" style="height: 30px; width: 100%;">
+        </a>
+          
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+             <a class="nav-link active" href="#">Projetos</a>
+            </li>
+
+            <li class="nav-item">
+             <a class="nav-link active" href="#">Planos</a>
+            </li>
+          <div class="media">
+            <a href="{% url 'perfil'%}">
+              <img class="align-self-center img" src="/media/{{usuario.foto_perfil}}" alt=""style="max-height: 40px; max-width: 40px; border-radius:50%; border:solid; border-color:#1290CB">
+            </a>
+
+            <div class="btn-group">
+            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a style="color:#000;" class="dropdown-item" href="#">
+                  Notificações <span class="badge badge-pill badge-primary"> 100</span>
+                </a>
+                <a style="color:#000;" class="dropdown-item" href="#">Sair</a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="chartjs-size-monitor" style="position: absolute; inset: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+          <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+            </div>
+          </div>
+          <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+              <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+              </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2"> {{projeto.nome}}</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <!--<button class="btn btn-sm btn-outline-secondary">Share</button>-->
+                <button class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+            </div>
+        </div>
+
+        <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1194" height="504" style="display: block; width: 597px; height: 252px;"></canvas>
+    </main>
+    <!--
+    <div class="container">
+      
+      <div class="jumbotron col-md-8" style="margin:auto;">
+        
+          <div style="max-height: 600px; max-width: 800px">
+            <canvas id="myChart"></canvas>
+          </div>
+      
+      </div>
+    </div>-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{% static './js/gestao_tempo.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
