@@ -46,3 +46,12 @@ def gestao_de_tempo(request):
   }
   return render(request, "gestao_tempo.html", dados)
 
+def ferramentas(request):
+  usuario = Usuario.objects.all()
+
+  dados = {
+    'usuario': usuario[0],
+    
+  }
+
+  return render(request, "ferramentas.html", dados)

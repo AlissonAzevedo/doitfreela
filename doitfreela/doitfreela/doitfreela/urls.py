@@ -27,5 +27,6 @@ urlpatterns = [
     path('perfil', perfil, name='perfil'),
     path('projeto/<int:id>/', projeto, name='projeto'),
     path('gestao_de_tempo', gestao_de_tempo, name= 'gestao_de_tempo'),
+    path('ferramentas', ferramentas, name= 'ferramentas'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
