@@ -55,3 +55,13 @@ def ferramentas(request):
   }
 
   return render(request, "ferramentas.html", dados)
+
+
+def ferramentas(request):
+  usuario = Usuario.objects.all()
+
+  dados = {
+    'usuario': usuario[0],
+  }
+
+  return render(request, "requisitos.html", dados)
