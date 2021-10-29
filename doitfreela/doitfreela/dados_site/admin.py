@@ -9,4 +9,9 @@ class ProjetoAdmin(admin.ModelAdmin):
 @admin.register(Usuario)
 class UsuarioAdmin(admin.ModelAdmin):
  list_display = ('nome', 'email')
+ 
+@admin.register(Ferramenta)
+class FerramentaAdmin(admin.ModelAdmin):
+ list_display = ('nome', 'descricao')
+
 

@@ -8,8 +8,12 @@
     <title>{{projeto.nome}} - DoItFreela</title>
 </head>
 <body>
+    
     <h1>{{projeto.nome}}</h1>
     <p>{{projeto.descricao}}</p>
     <img src="/media/{{projeto.imagem}}" alt="">
+    
+    <a href="{% url 'ferramentas' projeto.id %}">aqui</a>
+    
 </body>
 </html>
