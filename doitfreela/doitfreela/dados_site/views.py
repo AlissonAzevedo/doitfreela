@@ -32,7 +32,6 @@ def projeto(request, id):
   }
   return render(request, "projeto.html", dadosProjeto)
 
-
 def ferramentas(request, id):
   ferramentas = get_object_or_404(Ferramenta, pk=id)
   
