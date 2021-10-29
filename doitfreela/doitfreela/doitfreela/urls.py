@@ -26,8 +26,8 @@ urlpatterns = [
     path('', home, name='home'),
     path('perfil', perfil, name='perfil'),
     path('projeto/<int:id>/', projeto, name='projeto'),
+    path('ferramentas/<int:id>/', ferramentas, name= 'ferramentas'),
     path('gestao_de_tempo', gestao_de_tempo, name= 'gestao_de_tempo'),
-    path('ferramentas', ferramentas, name= 'ferramentas'),
     path('requisitos', requisitos, name= 'requisitos'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

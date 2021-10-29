@@ -26,23 +26,21 @@ def perfil(request):
   return render(request, "perfil.html", dadosUser)
 
 def projeto(request, id):
-
   projeto = get_object_or_404(Projeto, pk=id)
-  
   dadosProjeto = {
     'projeto': projeto,
   }
   return render(request, "projeto.html", dadosProjeto)
 
 
-def ferramentas(request):
-  ferramenta = Ferramenta.objects.all()
+def ferramentas(request, id):
+  ferramentas = get_object_or_404(Ferramenta, pk=id)
+  
   usuario = Usuario.objects.all()
 
   dados = {
     'usuario': usuario[0],
-    ferramenta: ferramenta,
-    
+    'ferramenta': ferramentas,
   }
 
   return render(request, "ferramentas.html", dados)
