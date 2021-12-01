@@ -25,10 +25,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
     path('perfil', perfil, name='perfil'),
-    path('projeto/<int:id>/', projeto, name='projeto'),
-    path('projeto/ferramentas/<int:id>/', ferramentas, name= 'ferramentas'),
+    path('projeto/<int:pk>/', projeto, name='projeto'),
+    path('projeto/ferramentas/<int:pk>/', ferramentas, name= 'ferramentas'),
     path('gestao_de_tempo', gestao_de_tempo, name= 'gestao_de_tempo'),
-    path('requisitos', requisitos, name= 'requisitos'),
+    path('projeto/ferramentas/requisitos', requisitos, name= 'requisitos'),
 
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
