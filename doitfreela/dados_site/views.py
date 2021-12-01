@@ -14,6 +14,10 @@ class ProjetoCreateView(CreateView):
   form_class = ProjetoForm
   success_url = '/projetos/'
 
+  def form_valid(self, form):
+      form.instance.usuario = self.request.user
+      return super().form_valid(form)
+
 class ProjetoUpdateView(UpdateView):
   model = Projeto
   success_url = '/projetos/'
