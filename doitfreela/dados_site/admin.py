@@ -13,5 +13,6 @@ class UsuarioAdmin(admin.ModelAdmin):
 @admin.register(Ferramenta)
 class FerramentaAdmin(admin.ModelAdmin):
  list_display = ('nome', 'descricao')
-
-
+@admin.register(Requisitos)
+class RequisitosAdmin(admin.ModelAdmin):
+ list_display = ('nome', 'descricao')

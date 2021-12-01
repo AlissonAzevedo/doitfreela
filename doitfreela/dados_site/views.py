@@ -57,9 +57,11 @@ def gestao_de_tempo(request):
 
 def requisitos (request):
   usuario = Usuario.objects.all()
+  requisito = Requisitos.objects.all()
 
   dados = {
     'usuario': usuario[0],
+    'requisito': requisito,
   }
 
   return render(request, "requisitos.html", dados)
