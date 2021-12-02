@@ -15,14 +15,18 @@
       <a href="{% url 'requisito.novo' pk_projeto %}" class="btn btn-success mb-3">
         <i class="bi bi-plus-lg"></i>
         Novo Requisito</a>
+
+      
+     <!--<input type="button" value="Gerar PDF" onclick="gerar_pdf"> --> 
     </div>
-  
-    <table class="table">
+    <button id="download" class="btn btn-secondary" style="margin-bottom: 1rem;">Gerar PDF</button>
+    <table class="table" id="requisitos_pdf">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
           <th scope="col">Descrição</th>
+          <th scope="col">Data de Criação</th>
           <th scope="col">Opções</th>
                 
         </tr>
@@ -33,6 +37,7 @@
             <th scope="row">{{ requisito.id }}</th>
             <td>{{ requisito.nome }}</td>
             <td>{{ requisito.descricao }}</td>
+            <td>{{requisito.dataCriacao}}</td>
             <td class="d-flex justify-content-start">
               <a href="{% url 'requisito.editar' pk_projeto requisito.pk %}" class="btn btn-warning d-flex mr-2">
                 <i class="bi bi-pen-fill"></i>
@@ -43,8 +48,11 @@
               </a>
             </td>
           </tr>
-        {% endfor %}
-      </tbody>
+          
+        {% endfor %}       
+      </tbody>     
     </table>
   </main>
+
+
 {% endblock content %}

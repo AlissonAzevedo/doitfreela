@@ -4,7 +4,7 @@
 <form method="POST">
 {% csrf_token %}
 <div class="container" style="padding: 6rem 10rem 1rem 10rem;">
-    <img src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="" srcset="">
+    <img src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="">
     {{ form.as_p }}
     <input class="btn btn-primary" type="submit" value="Entrar"></input>
 </div> 

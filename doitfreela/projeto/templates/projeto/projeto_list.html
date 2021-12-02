@@ -27,7 +27,7 @@
           {% for projeto in object_list%}
           <div class="col-md-4">
             <div class="card mb-4 box-shadow">
-              <a href="{% url 'projeto.requisito' projeto.pk %}">
+              <a href="#">
                 <img class="card-img-top" src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo-projeto" style="max-height: 225px; max-width: 100%; display: block;"> 
               </a> 
               <div class="card-body">
@@ -35,12 +35,29 @@
                 <p class="card-text">{{projeto.nome}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a href="{% url 'projeto.editar' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    <a href="{% url 'projeto.editar' projeto.pk %}" class="btn btn-sm btn-outline-secondary">
+                      <i class="bi bi-pencil-square"></i>
+                      Editar</a>
                     
-                    <a href="{% url 'projeto.remover' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Deletar</a>
+                    <a href="{% url 'projeto.remover' projeto.pk %}" class="btn btn-sm btn-outline-danger">
+                      <i class="bi bi-trash"></i>
+                      Deletar</a>
+                      
                   </div>
-                  <small class="text-muted">{{projeto.dataCriacao}}</small>
+                  
+                  
                 </div>
+                <small class="text-muted">{{projeto.dataCriacao}}</small>
+                <hr>
+               
+                  <a href="{% url 'projeto.requisito' projeto.pk %}" class="btn btn-outline-warning">
+                    <i class="bi bi-journal"></i>
+                    Requisitos</a>
+
+                  <a href="#"class="btn btn-outline-info">
+                    <i class="bi bi-clock-history"></i>
+                    Tempo</a>
+                
               </div>
             </div>
           </div>
