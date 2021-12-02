@@ -1,8 +1,12 @@
 {% extends 'main/base.html' %}
 {% block content %}
+{% load static%}
 <form method="POST">
 {% csrf_token %}
-{{ form.as_p }}
-<input type="submit" value="OK">
+<div class="container" style="padding: 6rem 10rem 1rem 10rem;">
+    <img src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="" srcset="">
+    {{ form.as_p }}
+    <input class="btn btn-primary" type="submit" value="Entrar"></input>
+</div> 
 </form> 
 {% endblock content %}

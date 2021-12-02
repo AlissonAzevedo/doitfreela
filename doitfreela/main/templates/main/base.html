@@ -54,44 +54,14 @@
     </div>
     
     <div class="lista-projeto">
-        <div class="container">
-        
-            <a href="{% url 'projeto.novo' %}" class="btn btn-success" style="margin-left: -200px; margin-top:3rem;">
-        
-                <i class="bi bi-plus-lg"></i>
-                Novo Projeto
-            </a>
+        <div class="container"> 
 
             <div class="album py-5">
-     
-                <div class="container">
-          
-                  <div class="row">
-                    {% for projeto in object_list%}
-                    <div class="col-md-4">
-                      <div class="card mb-4 box-shadow">
-                        <a href="{% url 'projeto.requisito' projeto.pk %}">
-                          <img class="card-img-top" src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo-projeto" style="max-height: 225px; max-width: 100%; display: block;"> 
-                        </a> 
-                        <div class="card-body">
-                          
-                          <p class="card-text">{{projeto.nome}}</p>
-                          <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                              <a href="{% url 'projeto.editar' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
-                              
-                              <a href="{% url 'projeto.remover' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Deletar</a>
-                            </div>
-                            <small class="text-muted">{{projeto.dataCriacao}}</small>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    {% endfor %}
-                  </div>
-                </div>
-              </div>
-
+                <a href="{% url 'projeto.novo' %}" class="btn btn-success" style="margin-top:3rem;">  
+                  <i class="bi bi-plus-lg"></i>
+                  Novo Projeto
+                </a>
+            </div>
 
         </div>
     </div>

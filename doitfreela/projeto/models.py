@@ -7,7 +7,7 @@ class Projeto(models.Model):
   nome = models.CharField(max_length=250)
   descricao = models.CharField(max_length=250)
   dataCriacao = models.DateTimeField(null=True, auto_now_add=True)
-  foto_projeto = models.FileField(upload_to="media/", null=True)
+  #foto_projeto = models.FileField(upload_to="media/", null=True)
   usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
   def __str__(self):

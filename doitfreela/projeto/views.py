@@ -25,6 +25,7 @@ class ProjetoCreateView(CreateView):
 
 class ProjetoUpdateView(UpdateView):
   model = Projeto
+  form_class = ProjetoForm
   success_url = '/projetos/'
   
 
