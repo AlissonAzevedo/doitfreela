@@ -1,5 +1,6 @@
 <form method="post">
     {% csrf_token %}
     <p>Deseja realmente apagar "{{ object }}"?</p>
-    <input type="submit" value="sim">
+    <input class="btn btn-danger" type="submit" value="sim">
+    <button class="btn btn-success" type="submit">Sim</button>
 </form>

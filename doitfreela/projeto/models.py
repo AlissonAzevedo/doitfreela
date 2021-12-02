@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 class Projeto(models.Model):
   nome = models.CharField(max_length=250)
   descricao = models.CharField(max_length=250)
-  dataCriacao = models.DateTimeField(null=True, auto_now_add=True)
+  dataCriacao = models.DateTimeField(null=True, auto_now_add=True, editable=False)
   #foto_projeto = models.FileField(upload_to="media/", null=True)
-  usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+  #usuario = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
   def __str__(self):
     return self.nome
@@ -20,7 +20,9 @@ class Usuario(models.Model):
   cidade = models.CharField(max_length=250)
   estado = models.CharField(max_length=250)
   cep = models.IntegerField()
-  foto_perfil = models.FileField(upload_to="media/", null=True)
+  #foto_perfil = models.FileField(upload_to="media/", null=True)
+  usuario = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+  projeto = models.ForeignKey(Projeto, on_delete=models.CASCADE, null=True)
 
   def __str__(self):
     return self.nome
