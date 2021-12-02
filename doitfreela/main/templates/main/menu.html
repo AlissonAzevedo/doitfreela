@@ -1,0 +1,43 @@
+{% if user.is_authenticated %}
+{% load static %}
+
+<header>
+    <div class="navbar navbar-dark bg-dark box-shadow" style="border-radius:30px;">
+        <div class="container d-flex justify-content-between">
+            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
+                <img src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo" style="height: 30px; width: 100%;">
+    </a>
+      
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+         <a class="nav-link active" href="{% url 'projeto.index' %}">Projetos</a>
+        </li>
+
+        <li class="nav-item">
+         <a class="nav-link active" href="#">Planos</a>
+        </li>
+      <div class="media">
+        <a href="#"><img class="align-self-center img" src="/media/{{usuario.foto_perfil}}" alt=""style="max-height: 40px; max-width: 40px; border-radius:50%; border:solid; border-color:#1290CB"></a>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a style="color:#000;" class="dropdown-item" href="#">
+            Notificações <span class="badge badge-pill badge-primary"> 100</span>
+          </a>
+          <a style="color:#000;" class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<!--<ul>
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'projeto.index' %}">Projetos</a></li>
+    <li><a href="{% url 'logout' %}">Logout</a></li>
+</ul>
+-->
+{% endif %}

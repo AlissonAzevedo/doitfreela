@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Projetos-DoItFreela {% endblock %}
+{% block content %}
+<section class="jumbotron text-center", style="background-color:white; margin-bottom: -4rem;">
+    <div class="container">
+      <h1 class="jumbotron-heading">Requisitos</h1>
+    </div>
+    
+    <!--<a href="#" class="btn btn-success">Adicionar Requisito</a>-->
+  </section>
+
+  <hr class="my-4">
+    
+
+  <main class="container">
+    <div>
+      <a href="{% url 'requisito.novo' pk_projeto %}" class="btn btn-success mb-3">Novo Requisito</a>
+    </div>
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Opções</th>        
+        </tr>
+      </thead>
+      <tbody>
+        {% for requisito in requisitos %}
+          <tr>
+            <th scope="row">{{ requisito.id }}</th>
+            <td>{{ requisito.nome }}</td>
+            <td>{{ requisito.descricao }}</td>
+
+
+            <td class="d-flex">
+              <a href="{% url 'requisito.editar' pk_projeto requisito.pk %}" class="btn btn-warning mr-2 ml-2">
+                <i class="bi bi-pen-fill"></i>
+              </a>
+
+              <a href="{% url 'requisito.remover' pk_projeto requisito.pk %}" class="btn btn-danger mr-2">
+                <i class="bi bi-trash-fill"></i>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </main>
+{% endblock content %}

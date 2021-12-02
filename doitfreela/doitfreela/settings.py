@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'dados_site',
+    'projeto',
+    'main',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +60,7 @@ ROOT_URLCONF = 'doitfreela.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,3 +136,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGOUT_REDIRECT_URL = '/'

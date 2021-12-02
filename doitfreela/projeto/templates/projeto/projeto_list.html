@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Projetos-DoItFreela {% endblock %}
+{% block content %}
+
+
+<a href="{% url 'projeto.novo' %}">Novo</a>
+<main role="main">
+
+    <section class="jumbotron text-center" style="margin-bottom: -4rem;">
+      <div class="container">
+        <h1 class="jumbotron-heading">Projetos</h1>
+      </div>
+    </section>
+
+    <div class="album py-5 bg-light">
+      <div class="container">
+
+        <div class="row">
+          {% for projeto in object_list%}
+          <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <a href="{% url 'projeto.requisito' projeto.pk %}">
+                <img class="card-img-top" src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo-projeto" style="max-height: 225px; max-width: 100%; display: block;"> 
+              </a> 
+              <div class="card-body">
+                
+                <p class="card-text">{{projeto.nome}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{% url 'projeto.editar' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                    
+                    <a href="{% url 'projeto.remover' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Deletar</a>
+                  </div>
+                  <small class="text-muted">{{projeto.dataCriacao}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+  </main>
+{% endblock content %}
