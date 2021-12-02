@@ -18,9 +18,87 @@
     {% include 'main/menu.html' %}
     
     {% block content %}
+    <div class="container-fluid" style="margin: 0px; padding: 0px; ">
+
+        <div id="carouselExampleIndicators" class="carousel slide mt-4" data-ride="carousel" >
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner d-flex">
+              <div class="carousel-item active" style=" height: 700px; width: 100%; background-size: cover; flex: none;">
+                
+                <div style="background-position:center;">
+                    <img class="d-block w-100" src="{% static './img/IMG_programadores.jpg'%}" alt="First slide" style="max-height:100%; width:100%; flex:none;">
+                </div>
+              </div>
     
-    <a href="{% url 'projeto.novo' %}">Novo Projeto</a>
+    
+              <div class="carousel-item"style="height: 700px; width: 100%; background-size: cover; flex: none;">
+                <img class="d-block w-100" src="{% static './img/auroraboreal.jpg'%}" alt="Second slide" style="max-height: 100%; width: 100%;">
+              </div>
+              <div class="carousel-item"style="height: 700px; width: 100%; background-size: cover; flex: none;">
+                <img class="d-block w-100" src="{% static './img/city.jpg'%}" alt="Third slide"style="max-height: 100%; width: 100%;">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    </div>
+    
+    <div class="lista-projeto">
+        <div class="container">
+        
+            <a href="{% url 'projeto.novo' %}" class="btn btn-success" style="margin-left: -200px; margin-top:3rem;">
+        
+                <i class="bi bi-plus-lg"></i>
+                Novo Projeto
+            </a>
+
+            <div class="album py-5">
+     
+                <div class="container">
+          
+                  <div class="row">
+                    {% for projeto in object_list%}
+                    <div class="col-md-4">
+                      <div class="card mb-4 box-shadow">
+                        <a href="{% url 'projeto.requisito' projeto.pk %}">
+                          <img class="card-img-top" src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo-projeto" style="max-height: 225px; max-width: 100%; display: block;"> 
+                        </a> 
+                        <div class="card-body">
+                          
+                          <p class="card-text">{{projeto.nome}}</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                              <a href="{% url 'projeto.editar' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Editar</a>
+                              
+                              <a href="{% url 'projeto.remover' projeto.pk %}" class="btn btn-sm btn-outline-secondary">Deletar</a>
+                            </div>
+                            <small class="text-muted">{{projeto.dataCriacao}}</small>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+
+
+        </div>
+    </div>
+    
     {% endblock content %}
+
+
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
