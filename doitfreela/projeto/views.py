@@ -5,23 +5,30 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import *
 from .forms import *
 from .models import *
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
 
-class ListProjetoView(ListView):
+class ListProjetoView(LoginRequiredMixin, ListView):
   model = Projeto
-  queryset = Projeto.objects.all()
+  template_name = 'projeto/projeto_list.html'
+
+  #queryset = Projeto.objects.all()
+  def get_queryset(self):
+    self.queryset_list = Projeto.objects.filter(usuario=self.request.user)
+    return self.queryset_list
   
 
-class ProjetoCreateView(CreateView):
+class ProjetoCreateView(LoginRequiredMixin, CreateView):
   model = Projeto
   form_class = ProjetoForm
   success_url = '/projetos/'
   
   def form_valid(self, form):
       form.instance.usuario = self.request.user
-      return super().form_valid(form)
+      url = super().form_valid(form)
+      return url
 
 class ProjetoUpdateView(UpdateView):
   model = Projeto
