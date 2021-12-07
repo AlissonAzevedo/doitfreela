@@ -6,9 +6,9 @@
         <div class="container d-flex justify-content-between">
             <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center">
                 <img src="{% static './img/Logo_DoItFreela_Transparente.png'%}" alt="logo" style="height: 30px; width: 100%;">
-    </a>
+            </a>
       
-      <ul class="nav justify-content-center">
+    <ul class="nav justify-content-center">
         <li class="nav-item">
          <a class="nav-link active" href="{% url 'projeto.index' %}">Projetos</a>
         </li>
@@ -19,8 +19,21 @@
       <div class="media">
         <a href="#"><img class="align-self-center img" src="{% static './img/user.png'%}" alt=""style="max-height: 40px; max-width: 40px; border-radius:50%; border:solid; border-color:#1290CB"></a>
       </div>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+           {{user.first_name}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">  
+          <a style="color:#000;" class="dropdown-item" href="{% url 'logout' %}">Sair</a>
+      </div>
+      </li>
+    </ul>
+<!--
+
       <div class="btn-group">
-        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+        <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user.username}}</button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
           <a style="color:#000;" class="dropdown-item" href="#">
             Notificações <span class="badge badge-pill badge-primary"> 100</span>
@@ -28,6 +41,8 @@
           <a style="color:#000;" class="dropdown-item" href="{% url 'logout' %}">Sair</a>
         </div>
       </div>
+
+-->   
 
     </div>
   </div>

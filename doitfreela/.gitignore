@@ -3,7 +3,5 @@
 # If you are using sqlite3
 *.sqlite3
 # Name of your virtuan env
-.mv_doitfreela
 *pyc
-
 mv_doitfreela
